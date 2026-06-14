@@ -10,17 +10,23 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    private String date;
+    private String description;
+    private String paidBy;
     private Double amount;
-    private String category;
+    private String currency;
+    private String splitType;
+
+    @Column(length = 1000)
+    private String splitWith;
+
+    @Column(length = 1000)
+    private String splitDetails;
+
+    @Column(length = 1000)
+    private String notes;
 
     public Expense() {
-    }
-
-    public Expense(String title, Double amount, String category) {
-        this.title = title;
-        this.amount = amount;
-        this.category = category;
     }
 
     public Long getId() {
@@ -31,12 +37,28 @@ public class Expense {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDate() {
+        return date;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPaidBy() {
+        return paidBy;
+    }
+
+    public void setPaidBy(String paidBy) {
+        this.paidBy = paidBy;
     }
 
     public Double getAmount() {
@@ -47,11 +69,43 @@ public class Expense {
         this.amount = amount;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getSplitType() {
+        return splitType;
+    }
+
+    public void setSplitType(String splitType) {
+        this.splitType = splitType;
+    }
+
+    public String getSplitWith() {
+        return splitWith;
+    }
+
+    public void setSplitWith(String splitWith) {
+        this.splitWith = splitWith;
+    }
+
+    public String getSplitDetails() {
+        return splitDetails;
+    }
+
+    public void setSplitDetails(String splitDetails) {
+        this.splitDetails = splitDetails;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }

@@ -23,6 +23,11 @@ public class ExpenseService {
         return expenseRepository.findAll();
     }
 
+    // Get Total Expense
+    public Double getTotalExpense() {
+        return expenseRepository.getTotalExpense();
+    }
+
     // Update Expense
     public Expense updateExpense(Long id, Expense expense) {
 
@@ -30,9 +35,15 @@ public class ExpenseService {
 
         if (existingExpense != null) {
 
-            existingExpense.setTitle(expense.getTitle());
+            existingExpense.setDate(expense.getDate());
+            existingExpense.setDescription(expense.getDescription());
+            existingExpense.setPaidBy(expense.getPaidBy());
             existingExpense.setAmount(expense.getAmount());
-            existingExpense.setCategory(expense.getCategory());
+            existingExpense.setCurrency(expense.getCurrency());
+            existingExpense.setSplitType(expense.getSplitType());
+            existingExpense.setSplitWith(expense.getSplitWith());
+            existingExpense.setSplitDetails(expense.getSplitDetails());
+            existingExpense.setNotes(expense.getNotes());
 
             return expenseRepository.save(existingExpense);
         }
